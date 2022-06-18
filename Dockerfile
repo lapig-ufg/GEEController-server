@@ -46,9 +46,9 @@ WORKDIR /APP
 ENV URL_TO_APPLICATION_GITHUB="https://github.com/lapig-ufg/GEEController-server.git"
 ENV BRANCH="main"
 
-RUN apt-get update && apt-get install -y git && mkdir -p /APP && \
+RUN apt-get update && apt-get install -y git && mkdir -p /APP && mkdir -p /data && \
     cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB} && \
     pip install gunicorn[gevent] && \
     rm -rf /var/lib/apt/lists/*
 
-CMD sh -c "cd /APP/GEEController-server && gunicorn --worker-class gevent --workers 4 --bind 0.0.0.0:5000 wsgi:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info"
+CMD sh -c "cd /APP/GEEController-server && gunicorn --worker-class gevent --workers 4 --bind 0.0.0.0:5000 ServeStatus.wsgi:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info"
