@@ -11,7 +11,7 @@ bp_task = Blueprint('task', __name__,url_prefix='/task')
 
 
 @bp_task.route('/oi', methods=['GET'])
-def get_tasks():
+def get_task_oi():
     return jsonify({'stats':'oi'})
 
 
