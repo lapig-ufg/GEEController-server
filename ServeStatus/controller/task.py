@@ -10,6 +10,11 @@ import re
 bp_task = Blueprint('task', __name__,url_prefix='/task')
 
 
+@bp_task.route('/oi', methods=['GET'])
+def get_tasks():
+    return jsonify({'stats':'oi'})
+
+
 @bp_task.route('/get/<string:version>/<string:run_class>', methods=['GET'])
 def get_tasks(version,run_class):
     if run_class == 'all':
