@@ -1,0 +1,5 @@
+[default]
+VERSION = 'MULT1'
+DB = 'task_lapig'
+DB_HOST = 'localhost'
+DB_PORT = 27017
