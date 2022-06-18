@@ -1,8 +1,8 @@
 import ee
 from loguru import logger
 from dynaconf import settings
-from Lapig.Lapig import HelpLapig
-from Lapig.Functions import type_process, login_gee
+from ServeStatus.Lapig.Lapig import HelpLapig
+from ServeStatus.Lapig.Functions import type_process, login_gee
 from requests import post
 from sys import exit
 

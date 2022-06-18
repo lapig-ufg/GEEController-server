@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, request, jsonify
-from ServeStatus.app.model import Task
-from Lapig.Functions import type_process, login_gee, error_in_task, id_
+from ServeStatus.model import Task
+from ServeStatus.Lapig.Functions import type_process, login_gee, error_in_task, id_
 from dynaconf import settings
 from sys import exit, version
 import urllib3

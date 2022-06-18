@@ -1,7 +1,7 @@
 from flask import Flask
 from dynaconf import settings
-from ServeStatus.app.model import configure as config_db
-from ServeStatus.app import controller
+from ServeStatus.model import configure as config_db
+from ServeStatus import controller
 
 
 def create_app():
