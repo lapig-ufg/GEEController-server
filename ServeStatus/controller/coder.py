@@ -1,5 +1,5 @@
 from flask import Blueprint, current_app, request, jsonify
-from ServeStatus.app.model import Coder
+from ServeStatus.model import Coder
 
 
 
