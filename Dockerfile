@@ -22,7 +22,7 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 # Builder Image
 ###############################################
 FROM python-base as builder-base
-RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential
+RUN apt-get update && apt-get install --no-install-recommends -y curl build-essential procps net-tools
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
 RUN pip3 install poetry 
@@ -52,3 +52,5 @@ RUN apt-get update && apt-get install -y git && mkdir -p /APP && mkdir -p /data 
     rm -rf /var/lib/apt/lists/*
 
 CMD sh -c "cd /APP/GEEController-server && gunicorn --worker-class gevent --workers 4 --bind 0.0.0.0:5000 ServeStatus.wsgi:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info && tail -f /dev/null"
+
+ENTRYPOINT [ "/APP/Monitora.sh"]
