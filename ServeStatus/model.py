@@ -16,7 +16,7 @@ class Task(db.Document):
     name = db.StringField()
     num = db.IntField()
     client = db.StringField()
-
+    modification_date = db.DateTimeField(default=datetime.utcnow)
     # version,name,task.state,task.id
 
 class Config(db.Document):

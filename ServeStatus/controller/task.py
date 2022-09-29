@@ -2,10 +2,21 @@ from flask import Blueprint, current_app, request, jsonify
 from ServeStatus.model import Task
 from ServeStatus.Lapig.Functions import type_process, id_
 from dynaconf import settings
+from flask_cors import cross_origin
+from ServeStatus.functions import is_lapig_user
+from datetime import datetime
 import re
 
 
 bp_task = Blueprint('task', __name__,url_prefix='/task')
+
+
+
+
+@bp_task.route('/oi', methods=['GET'])
+@is_lapig_user
+def get_oi():
+    return {'oi':'ola'}
 
 
 @bp_task.route('/get/<string:version>/<string:run_class>', methods=['GET'])
@@ -92,6 +103,8 @@ def get_state(id):
 
 
 @bp_task.route('/update', methods=['POST'])
+@cross_origin()
+@is_lapig_user
 def update_record():
     record = request.json
     task = Task.objects(id_=record['id_']).first()
@@ -104,12 +117,15 @@ def update_record():
         task.update(
             state = type_process(state),
             task_id = task_id,
-            client = client)
+            client = client,
+            modification_date = datetime.utcnow)
         current_app.logger.warning(f'Update na Task: {task_id}')
     return task.to_json()
 
 
 @bp_task.route('/add', methods=['POST'])
+@cross_origin()
+@is_lapig_user
 def add():
     record = request.json
     # {'version': 'V001', 'name': '2019', 'state': 'None', 'task_id': 'None'}

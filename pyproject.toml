@@ -11,6 +11,7 @@ dynaconf = "^3.1.4"
 flask-mongoengine = "^1.0.0"
 python-dotenv = "^0.17.1"
 urllib3 = "^1.26.4"
+Flask-Cors = "^3.0.10"
 
 
 [tool.poetry.dev-dependencies]

@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from ServeStatus.model import Coder
-
+from flask_cors import cross_origin
 
 
 
@@ -10,6 +10,8 @@ bp_coder = Blueprint('coder', __name__,url_prefix ='/coder')
 
 
 @bp_coder.route('/get/<string:version>', methods=['GET'])
+@cross_origin()
+@is_lapig_user
 def get_coder(version):
     try:
         coder = Coder.objects(version = version).all().order_by('-date').first()
