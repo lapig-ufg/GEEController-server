@@ -27,6 +27,8 @@ def get_coder(version):
             'messagem':'Erro a gerar a lista'}])
 
 @bp_coder.route('/send', methods=['POST'])
+@cross_origin()
+@is_lapig_user
 def send_coder():
     try:
         record = request.json
