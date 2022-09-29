@@ -4,7 +4,7 @@
     def application_name= "geetask_lapig"
 
         stage('Checkout') {
-            git branch: 'develop',
+            git branch: 'main',
             url: 'https://github.com/lapig-ufg/GEEController-server.git'
         }
         stage('Validate') {
