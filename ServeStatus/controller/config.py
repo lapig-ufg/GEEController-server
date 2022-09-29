@@ -1,7 +1,7 @@
 from flask import Blueprint, current_app, jsonify
 from ServeStatus.model import Task
 from ServeStatus.model import Config
-from Lapig.Functions import type_process, id_
+from ServeStatus.Lapig.Functions import type_process, id_
 from ServeStatus.config import settings
 
 

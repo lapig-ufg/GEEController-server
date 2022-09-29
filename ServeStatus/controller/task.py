@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, request, jsonify
 from ServeStatus.model import Task
-from Lapig.Functions import type_process, id_
+from ServeStatus.Lapig.Functions import type_process, id_
 from dynaconf import settings
 import re
 
