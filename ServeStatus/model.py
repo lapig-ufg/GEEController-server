@@ -1,5 +1,5 @@
 from flask_mongoengine import MongoEngine
-
+from datetime import datetime
 db = MongoEngine()
 
 
@@ -24,3 +24,8 @@ class Config(db.Document):
     list_task = db.ListField(db.StringField(max_length=50))
     version = db.StringField()
     QUANTITY_ALLOWED_IN_QUEUE = db.IntField()
+
+class Coder(db.Document):
+    date = db.DateTimeField(default=datetime.utcnow)
+    version = db.StringField()
+    code = db.StringField()

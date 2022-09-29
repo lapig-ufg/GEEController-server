@@ -1,5 +1,5 @@
 [default]
 VERSION = 'MULT1'
-DB = 'task_lapig'
+DB = 'geetask_lapig'
 DB_HOST = 'localhost'
 DB_PORT = 27017

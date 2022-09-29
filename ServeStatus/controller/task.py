@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, request, jsonify
-from ServeStatus.model import Task
-from ServeStatus.Lapig.Functions import type_process, login_gee, error_in_task, id_
+from ServeStatus.app.model import Task
+from Lapig.Functions import type_process, login_gee, error_in_task, id_
 from dynaconf import settings
 from sys import exit, version
 import urllib3
@@ -8,11 +8,6 @@ import re
 
 
 bp_task = Blueprint('task', __name__,url_prefix='/task')
-
-
-@bp_task.route('/oi', methods=['GET'])
-def get_task_oi():
-    return jsonify({'stats':'oi'})
 
 
 @bp_task.route('/get/<string:version>/<string:run_class>', methods=['GET'])
