@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, request, jsonify
+from flask import Blueprint, request, jsonify
 from ServeStatus.model import Coder
 
 

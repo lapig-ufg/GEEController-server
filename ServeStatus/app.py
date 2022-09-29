@@ -1,5 +1,5 @@
 from flask import Flask
-from dynaconf import settings
+from ServeStatus.config import settings
 from ServeStatus.model import configure as config_db
 from ServeStatus import controller
 
