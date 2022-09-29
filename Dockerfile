@@ -46,7 +46,7 @@ WORKDIR /APP
 ENV URL_TO_APPLICATION_GITHUB="https://github.com/lapig-ufg/GEEController-server.git"
 ENV BRANCH="main"
 
-RUN apt-get update && apt-get install -y git procps net-tools && mkdir -p /APP && mkdir -p /data && \
+RUN apt-get update && apt-get install -y git procps net-tools wget curl && mkdir -p /APP && mkdir -p /data && \
     cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB} && \
     pip install gunicorn[gevent] && \
     rm -rf /var/lib/apt/lists/*
